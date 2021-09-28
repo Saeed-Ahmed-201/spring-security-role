@@ -23,8 +23,6 @@ public class UserDetailsImpl implements UserDetails{
 	private boolean isEnabled;
 
 	private Collection<? extends GrantedAuthority> authorties;
-	
-	
 
 	public UserDetailsImpl(long id, String fullName, String email, String password, boolean isEnabled,
 			Collection<? extends GrantedAuthority> authorties) {
@@ -79,7 +77,7 @@ public class UserDetailsImpl implements UserDetails{
 	public static UserDetailsImpl build(User user) {
 		List<GrantedAuthority> authorities = new ArrayList<>();
 		for(Roles role : user.getRoles()) {
-			authorities.add(new SimpleGrantedAuthority(role.getName().name()));
+			authorities.add(new SimpleGrantedAuthority(role.getName().toString()));
 		}
 //		user.getRoles().stream().forEach(role -> 
 //		                       authorities.add(new SimpleGrantedAuthority(role.getName().name()))

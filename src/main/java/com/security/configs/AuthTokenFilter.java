@@ -49,7 +49,7 @@ public class AuthTokenFilter extends OncePerRequestFilter {
 
 	private String parseToken(HttpServletRequest request) {
 		    String header = request.getHeader("Authorization");
-		    if(StringUtils.hasText(header) && header.startsWith("Bear ")) {
+		    if(StringUtils.hasText(header) && header.startsWith("Bearer ")) {
 		    	return header.substring(7, header.length());
 		    }	
 		    return null;
